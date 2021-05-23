@@ -6,7 +6,7 @@ services:
   chrome:
     image: selenium/node-chrome:4.0.0-beta-4-prerelease-20210517
     depends_on:
-      - selenium-hub
+      - hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
@@ -16,16 +16,16 @@ services:
   firefox:
     image: selenium/node-firefox:4.0.0-beta-4-prerelease-20210517
     depends_on:
-      - selenium-hub
+      - hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     networks:
     - test-automation-setup   
-  selenium-hub:
+  hub:
     image: selenium/hub:4.0.0-beta-4-prerelease-20210517
-    container_name: selenium-hub
+    container_name: hub
     ports:
       - "4442:4442"
       - "4443:4443"
