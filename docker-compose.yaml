@@ -29,7 +29,7 @@ services:
     ports:
       - "4442:4442"
       - "4443:4443"
-      - "4444:4444"
+      - "4445:4445"
     networks:
     - test-automation-setup
   mvn_tests: 
@@ -38,4 +38,4 @@ services:
         dockerfile: Dockerfile
     networks:
         - test-automation-setup
-    entrypoint: mvn clean test -Dbrowser=chrome -DgridURL=hub:4444
+    entrypoint: mvn clean test -Dbrowser=chrome -DgridURL=hub:4445
